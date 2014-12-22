@@ -1,0 +1,289 @@
+Где  -с [number] – количество параллельных запросов, -n [number] - общее число запросов
+
+•	Time taken for tests: [number] seconds – общее время тестирования.
+•	Complete requests: [number] – выполнено запросов
+•	Failed requests: 0 – неудачных запросов 0 – это говорит о том, что сервер выдержал заданную нагрузку
+•	Requests per second:  [number] [#/sec] (mean) – запросов в секунду
+•	Time per request: [number] [ms] (mean) – в течении этого времени выполнились n параллельных запросов
+•	Time per request: [number] [ms] (mean, across all concurrent requests) – среднее время выполнения одного запроса
+•	Percentage of the requests served within a certain time (ms) – доля запросов на единицу времени.
+
+ab -c 2 -n 6 http://127.0.0.1:8000/octonyan/
+
+Server Software:        WSGIServer/0.1
+Server Hostname:      127.0.0.1
+Server Port:          	8000
+
+Document Path:          /octonyan/
+Document Length:        0 bytes
+
+
+Concurrency Level:	2
+Time taken for tests:   	0.030 seconds
+Complete requests:	6
+Failed requests:	0
+Non-2xx responses:	6
+Total transferred:	1290 bytes
+HTML transferred:	0 bytes
+Requests per second: 	202.44 [#/sec] (mean)
+Time per request:	9.880 [ms] (mean)
+Time per request:	4.940 [ms] (mean, across all concurrent requests)
+Transfer rate:  	42.50 [Kbytes/sec] received
+
+Connection Times (ms)
+             	 min  	mean	[+/-sd]	 median  max
+Connect:     	  0  	  0  	 0.0    	 0      	 0
+Processing: 	  5  	  9  	 4.6   	 10     	18
+Waiting:        	  5  	  9  	 3.9   	  9      	16
+Total:       	  5  	 10   	4.6    	 10   	18
+
+Percentage of the requests served within a certain time (ms)
+  50%     10
+  66%     10
+  75%     10
+  80%     10
+  90%     18
+  95%     18
+  98%     18
+  99%     18
+ 100%     18 (longest request)
+
+
+
+
+ab -c 10 -n 600 http://127.0.0.1:8000/octonyan/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Finished 600 requests
+
+Server Software:        WSGIServer/0.1
+Server Hostname:      127.0.0.1
+Server Port:           	8000
+
+Document Path:          /octonyan/
+Document Length:        0 bytes
+
+Concurrency Level:	10
+Time taken for tests:	3.067 seconds
+Complete requests:	600
+Failed requests:        	0
+Non-2xx responses:	600
+Total transferred:	129000 bytes
+HTML transferred:	0 bytes
+Requests per second:    	195.64 [#/sec] (mean)
+Time per request:	51.115 [ms] (mean)
+Time per request:	5.112 [ms] (mean, across all concurrent requests)
+Transfer rate:  	41.08 [Kbytes/sec] received
+
+Connection Times (ms)
+           		   min  	mean	[+/-sd]	median   max
+Connect:      	  0   	 0  	 0.0  	    0    	   0
+Processing:    	  18  	 51  	 9.1  	   51   	   96
+Waiting:      	  13  	 47  	 8.7  	   47   	   90
+Total:       	  18 	 51  	 9.1   	  51   	   96
+
+Percentage of the requests served within a certain time (ms)
+  50%     51
+  66%     54
+  75%     56
+  80%     57
+  90%     62
+  95%     66
+  98%     73
+  99%     77
+ 100%     96 (longest request)
+
+
+ab -c 20 -n 1000 http://127.0.0.1:8000/octonyan/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+Server Software:        WSGIServer/0.1
+Server Hostname:       127.0.0.1
+Server Port:           	8000
+
+Document Path:          /octonyan/
+Document Length:        0 bytes
+
+Concurrency Level:	20
+Time taken for tests:   	5.153 seconds
+Complete requests:	1000
+Failed requests:	0
+Non-2xx responses:	1000
+Total transferred:	215000 bytes
+HTML transferred:	0 bytes
+Requests per second:   	194.06 [#/sec] (mean)
+Time per request:	103.062 [ms] (mean)
+Time per request:	5.153 [ms] (mean, across all concurrent requests)
+Transfer rate:          	40.74 [Kbytes/sec] received
+
+Connection Times (ms)
+        		      min     mean	[+/-sd] 	median   max
+Connect:        	        0        14 		117.4    	 0   	 1000
+Processing:   	        20      87  	29.7     	85    	 491
+Waiting:     	        18      83  	29.4    		81    	 490
+Total:     	        21      101 	120.5    	85    	 1108
+
+Percentage of the requests served within a certain time (ms)
+  50%     85
+  66%     93
+  75%     97
+  80%    100
+  90%    108
+  95%    117
+  98%    296
+  99%   1069
+ 100%   1108 (longest request)
+ab -c 50 -n 1000 http://127.0.0.1:8000/octonyan/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        WSGIServer/0.1
+Server Hostname:       127.0.0.1
+Server Port:           	8000
+
+Document Path:          /octonyan/
+Document Length:        0 bytes
+
+Concurrency Level:	50
+Time taken for tests:   	4.857 seconds
+Complete requests:	1000
+Failed requests:	0
+Non-2xx responses:	1000
+Total transferred:	215000 bytes
+HTML transferred:	0 bytes
+Requests per second:    	205.90 [#/sec] (mean)
+Time per request:	242.838 [ms] (mean)
+Time per request:	4.857 [ms] (mean, across all concurrent requests)
+Transfer rate:          	43.23 [Kbytes/sec] received
+
+Connection Times (ms)
+      		        min 	 mean	[+/-sd]	median   max
+Connect:        		0 	 108 	402.9    0   	 3004
+Processing:    		16 	 100 	 87.8     86   	  919
+Waiting:      		13	   97 	 87.6     82     	  917
+Total:      		18	  208	434.4    87   	 3113
+
+Percentage of the requests served within a certain time (ms)
+  50%     87
+  66%     94
+  75%     99
+  80%    103
+  90%    292
+  95%   1099
+  98%   1502
+  99%   3067
+ 100%   3113 (longest request)
+ab -c 50 -n 2999 http://127.0.0.1:8000/octonyan/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 299 requests
+Completed 598 requests
+Completed 897 requests
+Completed 1196 requests
+Completed 1495 requests
+Completed 1794 requests
+Completed 2093 requests
+Completed 2392 requests
+Completed 2691 requests
+Completed 2990 requests
+Finished 2999 requests
+
+
+Server Software:        WSGIServer/0.1
+Server Hostname:       127.0.0.1
+Server Port:            	8000
+
+Document Path:          /octonyan/
+Document Length:        0 bytes
+
+Concurrency Level:	50
+Time taken for tests:	13.850 seconds
+Complete requests:	2999
+Failed requests:       	0
+Non-2xx responses:	2999
+Total transferred:	644785 bytes
+HTML transferred:	0 bytes
+Requests per second:    	216.53 [#/sec] (mean)
+Time per request:	230.917 [ms] (mean)
+Time per request:	4.618 [ms] (mean, across all concurrent requests)
+Transfer rate:          	45.46 [Kbytes/sec] received
+
+Connection Times (ms)
+          		    Min	  mean	[+/-sd] median   max
+Connect:    	    0  	  116 	429.6      0         7011
+Processing: 	    10   	  95  	95.3        82       1730
+Waiting:     	    9   	  91  	95.3        79       1726
+Total:       	    11  	  210 	460.1      84       7113
+
+Percentage of the requests served within a certain time (ms)
+  50%     84
+  66%     92
+  75%     97
+  80%    101
+  90%    293
+  95%   1091
+  98%   1458
+  99%   3072
+ 100%   7113 (longest request)
+
+
+
+ab -c 150 -n 2999 http://127.0.0.1:8000/octonyan/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 299 requests
+Completed 598 requests
+Completed 897 requests
+Completed 1196 requests
+Completed 1495 requests
+apr_socket_recv: Connection reset by peer (104)
+Total of 1509 requests completed 
+
+ab -c 50 -n 3000 http://127.0.0.1:8000/octonyan/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 300 requests
+Completed 600 requests
+Completed 900 requests
+Completed 1200 requests
+apr_socket_recv: Connection reset by peer (104)
+Total of 1326 requests completed
+
+
+ab -c 140 -n 3001 http://127.0.0.1:8000/octonyan/
+
+Benchmarking 127.0.0.1 (be patient)
+Completed 300 requests
+Completed 600 requests
+apr_socket_recv: Connection reset by peer (104)
+Total of 876 requests completed
